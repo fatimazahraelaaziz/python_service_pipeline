@@ -3,7 +3,7 @@ import os
 from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key'  # Replace with a strong, random key
+app.config['SECRET_KEY'] = 'test-secret-key'  # Replace with a strong, random key
 app.config['COUNTER_FILE'] = "/data/counter.txt"  # Set default path
 csrf = CSRFProtect(app)
 
