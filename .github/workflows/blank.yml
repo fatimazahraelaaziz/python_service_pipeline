@@ -45,6 +45,7 @@ jobs:
 ###                     CREATE RELEASE                       ###
 ###  Creating release with the tag from the previous step    ###
 ################################################################
+##
 
     - name: Create Release
       id: create_release
