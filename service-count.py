@@ -32,25 +32,18 @@ def update_counter(counter):
     with open(COUNTER_FILE, "w") as f:
         f.write(str(counter))
 
-@app.route('/', methods=['GET', 'POST'])
-def handle_request():
-    """
-    Handles GET and POST requests to the root endpoint.
-    GET request returns the current count of POST requests.
-    POST request increments the counter and returns the updated count.
-    
-    Returns:
-        str: The response message with the current or updated counter.
-    """
+@app.route('/', methods=['GET'])
+def get_count():
     counter = read_counter()
-    if request.method == 'POST':
-        # Increment the counter for each POST request and update the file.
-        counter += 1
-        update_counter(counter)
-        return f"POST requests counter updated. Current count: {counter}"
-    else:
-        # For GET requests, just return the current count.
-        return f"Current POST requests count: {counter}"
+    return f"Current POST requests count: {counter}"
+
+@app.route('/', methods=['POST'])
+def increment_count():
+    counter = read_counter()
+    counter += 1
+    update_counter(counter)
+    return f"POST requests counter updated. Current count: {counter}"
+
 
 @app.route('/health', methods=['GET'])
 def health_check():
