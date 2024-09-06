@@ -34,7 +34,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     python -m pip install -r requirements.txt
 
 # Copy the source code (counter-service.py) into the container.
-COPY service-count.py .
+COPY service_count.py .
 
 # Switch to the non-privileged user to run the application.
 USER appuser
