@@ -117,3 +117,12 @@ jobs:
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
+
+        - name: Run Snyk to check Docker image for vulnerabilities
+      uses: snyk/actions/docker@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+         image: ${{ env.IMAGE_NAME }}
+         args: --severity-threshold=high --policy-path=.snyk
+      continue-on-error: false
