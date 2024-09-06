@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 import os
+from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
+csrf = CSRFProtect(app)  # Enable CSRF protection
 
 # Define the path for the counter file to store the data in Docker Volume
 COUNTER_FILE = "/data/counter.txt"
