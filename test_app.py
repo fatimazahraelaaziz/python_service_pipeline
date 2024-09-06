@@ -8,7 +8,7 @@ class TestFlaskApp(TestCase):
     def create_app(self):
         app.config['TESTING'] = True
         app.config['WTF_CSRF_ENABLED'] = False  # Disable CSRF for testing
-        app.config['SECRET_KEY'] = 'test-secret-key'
+        app.config['SECRET_KEY'] = os.environ.get('TEST_SECRET_KEY', 'test-secret-key')
         return app
 
     @pytest.fixture(autouse=True)
