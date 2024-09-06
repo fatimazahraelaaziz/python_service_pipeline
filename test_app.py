@@ -34,16 +34,24 @@ class TestFlaskApp(TestCase):
         app.config['COUNTER_FILE'] = self.original_counter_file
 
     def test_get_request(self):
+        # Ensure the counter file starts at 0
+        read_counter()  # Initialize the counter file
         response = self.client.get('/')
         self.assert200(response)
         self.assertIn(b"Current POST requests count:", response.data)
 
     def test_post_request(self):
+        # Ensure the counter file starts at 0
         initial_count = read_counter()
         response = self.client.post('/')
         self.assert200(response)
         self.assertIn(b"POST requests counter updated", response.data)
         self.assertEqual(read_counter(), initial_count + 1)
+
+    def test_health_check(self):
+        response = self.client.get('/health')
+        self.assert200(response)
+        self.assertEqual(response.json, {"status": "healthy"})
 
 if __name__ == '__main__':
     pytest.main()
