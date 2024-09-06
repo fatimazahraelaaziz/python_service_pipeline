@@ -28,7 +28,7 @@ jobs:
 
     - name: Run tests and generate coverage report
       run: |
-        pytest --cov=service_count --cov-report=xml -cov-omit=test_app.py
+        pytest --cov=service_count -cov-omit=test_app.py --cov-report=xml 
 
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
