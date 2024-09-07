@@ -1,4 +1,4 @@
-ARG PYTHON_VERSION=3.13.0a4
+ARG PYTHON_VERSION=3.13.0rc1
 FROM python:${PYTHON_VERSION}-alpine3.19 AS base
 
 # Prevents Python from writing pyc files.
