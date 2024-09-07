@@ -3,7 +3,6 @@ services:
   counter-service:
     container_name: python_service_pipeline
     image: 533267091268.dkr.ecr.eu-north-1.amazonaws.com/python_service_pipeline
-    user: "0"
     volumes:
       - ./data:/data
     ports:
