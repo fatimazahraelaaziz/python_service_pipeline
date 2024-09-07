@@ -13,7 +13,7 @@ jobs:
     - name: Check out the repo
       uses: actions/checkout@v2
       with:
-        fetch-depth: 0 # Necessary to fetch all tags and history
+        fetch-depth: 0 # Necessary to fetch all tags and historyy
 
     - name: Set up Python
       uses: actions/setup-python@v3
