@@ -1,5 +1,0 @@
-version: v1.25.0
-ignore: {}
-exclude:
-  global:
-    - node_modules
