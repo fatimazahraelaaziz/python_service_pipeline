@@ -50,6 +50,75 @@ The **Service Count** project demonstrates a practical approach to building, tes
 ### 1. Repository Setup
 - Create a GitHub repository for the project and clone it locally:
   ```bash
-  git clone https://github.com/your-username/service-count.git
-  cd service-count
+  git clone [https://github.com/fatimazahraelaaziz/python_service_pipeline.git]
+  cd python_service_pipeline
+
+## 2. Local Development 
+Develop a Python web service (see service-count.py[https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/service_count.py]) that:
+- Increments a counter on POST requests.
+- Returns the current count on GET requests.
+
+## 3. Dockerization
+- Write a `Dockerfile`(see Dockerfile[https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/Dockerfile]) see  to containerize the application.
+- Build and test the Docker image locally:
+
+```bash
+docker build -t service-count .
+docker run -p 8080:8080 service-count
+```
+
+## 4. AWS Setup
+- Set up an EC2 instance and install Docker.
+- Create an ECR repository to store the Docker image.
+
+## 5. CI/CD Pipeline
+Set up GitHub Actions workflows( see blank.yaml[https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/.github/workflows/blank.yml]):
+- Build and push the Docker image to ECR on every code commit.
+- Pull the image to the EC2 instance and deploy it using Docker Compose.
+- Run SonarCloud and Snyk for static analysis and security checks.
+
+## How to Run Locally
+
+To run the **Service Count** project locally, follow these steps:
+
+### Clone the repository:
+```bash
+git clone https://github.com/your-username/service-count.git
+cd service-count
+```
+### Build the Docker image:
+```bash
+docker build -t service-count .
+```
+
+### Run the Docker container:
+```bash
+docker run -p 8080:8080 service-count
+```
+
+### Interact with the service:
+- To retrieve the current count:
+  ```bash
+  curl http://localhost:8080/
+  ```
+- To increment the count:
+  ```bash
+  curl -X POST http://localhost:8080/
+  ```
+
+## CI/CD Pipeline
+
+### Continuous Integration (CI)
+The CI pipeline runs on every code commit and performs the following actions:
+- Builds the Docker image.
+- Pushes the Docker image to AWS ECR.
+- Runs SonarCloud for static code analysis.
+- Runs Snyk for vulnerability scanning.
+
+### Continuous Deployment (CD)
+After the CI process is complete, the CD pipeline:
+- Pulls the Docker image from AWS ECR to the EC2 instance.
+- Restarts the running Docker container using Docker Compose.
+
+
 
