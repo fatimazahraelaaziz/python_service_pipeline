@@ -47,16 +47,16 @@ The **Service Count** project demonstrates a practical approach to building, tes
 ### 1. Repository Setup
 - Create a GitHub repository for the project and clone it locally:
   ```bash
-  git clone [https://github.com/fatimazahraelaaziz/python_service_pipeline.git]
+  git clone https://github.com/fatimazahraelaaziz/python_service_pipeline.git
   cd python_service_pipeline
 
 ### 2. Local Development 
-Develop a Python web service (see service-count.py[https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/service_count.py]) that:
+Develop a Python web service (see [service-count.py](https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/service_count.py)) that:
 - Increments a counter on POST requests.
 - Returns the current count on GET requests.
 
 ### 3. Dockerization
-- Write a `Dockerfile`(see Dockerfile[https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/Dockerfile]) see  to containerize the application.
+- Write a `Dockerfile`(see [Dockerfile](https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/Dockerfile)) see  to containerize the application.
 - Build and test the Docker image locally:
 
 ```bash
@@ -69,7 +69,7 @@ docker run -p 8080:8080 service-count
 - Create an ECR repository to store the Docker image.
 
 ### 5. CI/CD Pipeline
-Set up GitHub Actions workflows( see blank.yaml[https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/.github/workflows/blank.yml]):
+Set up GitHub Actions workflows(see [blank.yaml](https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/.github/workflows/blank.yml)):
 - Build and push the Docker image to ECR on every code commit.
 - Pull the image to the EC2 instance and deploy it using Docker Compose.
 - Run SonarCloud and Snyk for static analysis and security checks.
@@ -80,8 +80,8 @@ To run the **Service Count** project locally, follow these steps:
 
 ### Clone the repository:
 ```bash
-git clone https://github.com/your-username/service-count.git
-cd service-count
+git clone https://github.com/fatimazahraelaaziz/python_service_pipeline.git
+cd python_service_pipeline
 ```
 ### Build the Docker image:
 ```bash
