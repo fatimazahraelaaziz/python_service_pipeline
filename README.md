@@ -69,7 +69,7 @@ docker run -p 8080:8080 service-count
 - Create an ECR repository to store the Docker image.
 
 ### 5. CI/CD Pipeline
-Set up GitHub Actions workflows(see [blank.yaml](https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/.github/workflows/blank.yml)):
+Set up GitHub Actions workflows(see [blank.yaml(https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/.github/workflows/blank.yml)):
 - Build and push the Docker image to ECR on every code commit.
 - Pull the image to the EC2 instance and deploy it using Docker Compose.
 - Run SonarCloud and Snyk for static analysis and security checks.
