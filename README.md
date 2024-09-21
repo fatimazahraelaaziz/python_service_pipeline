@@ -115,7 +115,7 @@ The CI pipeline runs on every code commit and performs the following actions:
 ### Continuous Deployment (CD)
 After the CI process is complete, the CD pipeline:
 - Pulls the Docker image from AWS ECR to the EC2 instance.
-- Restarts the running Docker container using Docker Compose.
+- Restarts the running Docker container using Docker Compose (see [docker-compose.yml](https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/docker-compose.yml).
 
 
 
