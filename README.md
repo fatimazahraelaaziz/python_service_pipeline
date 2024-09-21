@@ -12,9 +12,6 @@
 - [Implementation Steps](#implementation-steps)
 - [How to Run Locally](#how-to-run-locally)
 - [CI/CD Pipeline](#cicd-pipeline)
-- [Deployment](#deployment)
-- [Future Enhancements](#future-enhancements)
-- [License](#license)
 
 ## Project Overview
 
@@ -53,12 +50,12 @@ The **Service Count** project demonstrates a practical approach to building, tes
   git clone [https://github.com/fatimazahraelaaziz/python_service_pipeline.git]
   cd python_service_pipeline
 
-## 2. Local Development 
+### 2. Local Development 
 Develop a Python web service (see service-count.py[https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/service_count.py]) that:
 - Increments a counter on POST requests.
 - Returns the current count on GET requests.
 
-## 3. Dockerization
+### 3. Dockerization
 - Write a `Dockerfile`(see Dockerfile[https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/Dockerfile]) see  to containerize the application.
 - Build and test the Docker image locally:
 
@@ -67,11 +64,11 @@ docker build -t service-count .
 docker run -p 8080:8080 service-count
 ```
 
-## 4. AWS Setup
+### 4. AWS Setup
 - Set up an EC2 instance and install Docker.
 - Create an ECR repository to store the Docker image.
 
-## 5. CI/CD Pipeline
+### 5. CI/CD Pipeline
 Set up GitHub Actions workflows( see blank.yaml[https://github.com/fatimazahraelaaziz/python_service_pipeline/blob/main/.github/workflows/blank.yml]):
 - Build and push the Docker image to ECR on every code commit.
 - Pull the image to the EC2 instance and deploy it using Docker Compose.
